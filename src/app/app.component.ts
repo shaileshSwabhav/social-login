@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
     this.authService.authState.subscribe({
       next: (user: SocialUser) => {
         console.log("ngoninit user -> ", user);
+        this.socialUser = user
         this.isLoggedIn = true
       },
       error: (err: any) => {
@@ -27,10 +28,9 @@ export class AppComponent implements OnInit {
     })
   }
 
+  socialUser: SocialUser | null = null
 
   signInWithFB(): void {
-    console.log(FacebookLoginProvider.PROVIDER_ID);
-
     try {
       const socialUser = this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
       console.log("after login -> ", socialUser);
@@ -42,6 +42,11 @@ export class AppComponent implements OnInit {
   }
 
   signout(): void {
-    this.authService.signOut();
+    try {
+      this.authService.signOut();
+      this.isLoggedIn = false
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

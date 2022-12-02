@@ -31,7 +31,7 @@ const fbLoginOptions = {
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider(environment.FB_APP_ID, fbLoginOptions)
-          }
+          },
         ],
         onError(error: any) {
           console.error(error);

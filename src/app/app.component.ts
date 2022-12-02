@@ -14,6 +14,13 @@ export class AppComponent implements OnInit {
 
   isLoggedIn: boolean = false
 
+  fbLoginOptions = {
+    scope: 'email,user_birthday,user_gender',
+    return_scopes: true,
+    enable_profile_selector: true
+  };
+  
+
   ngOnInit(): void {
     this.authService.authState.subscribe({
       next: (user: SocialUser) => {
@@ -32,7 +39,7 @@ export class AppComponent implements OnInit {
 
   signInWithFB(): void {
     try {
-      const socialUser = this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+      const socialUser = this.authService.signIn(FacebookLoginProvider.PROVIDER_ID, this.fbLoginOptions);
       console.log("after login -> ", socialUser);
       this.isLoggedIn = true
     } catch (error) {

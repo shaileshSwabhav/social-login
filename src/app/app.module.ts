@@ -7,12 +7,6 @@ import { AppComponent } from './app.component';
 
 import { FacebookLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 
-const fbLoginOptions = {
-  scope: 'email,user_birthday,user_gender',
-  return_scopes: true,
-  enable_profile_selector: true
-};
-
 @NgModule({
   declarations: [
     AppComponent
@@ -30,7 +24,7 @@ const fbLoginOptions = {
         providers: [
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider(environment.FB_APP_ID, fbLoginOptions)
+            provider: new FacebookLoginProvider(environment.FB_APP_ID)
           },
         ],
         onError(error: any) {

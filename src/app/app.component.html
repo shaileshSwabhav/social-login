@@ -1,5 +1,8 @@
 <ng-container *ngIf="!isLoggedIn; else logout">
-  <button type="button" (click)="signInWithFB()">Sign in with facebook</button>
+  <!-- <button type="button" (click)="signInWithFB()">Sign in with facebook</button> -->
+  <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="default"
+    data-auto-logout-link="true" data-use-continue-as="false" (click)="signInWithFB()"></div>
+
 </ng-container>
 <ng-template #logout>
   <button type="button" (click)="signout()">Signout</button>

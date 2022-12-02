@@ -1,4 +1,1 @@
-https://www.facebook.com/tr/?id=527239179285874&ev=fb_page_view&dl=https%3A%2F%2Flocalhost%3A4200%2Flogin&rl=https%3A%2F%2Flocalhost%3A4200%2Flogin&if=false&ts=1669961416677&sw=1280&sh=720&at=
-
-
-ng build --output-path docs --base-href /repository-name/
+ng build --output-path docs --base-href /social-login/

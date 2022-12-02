@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
       next: (user: SocialUser) => {
         console.log("ngoninit user -> ", user);
         this.socialUser = user
-        this.isLoggedIn = true
+        this.isLoggedIn = (user != null)
       },
       error: (err: any) => {
         console.error(err);

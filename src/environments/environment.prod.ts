@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  FB_APP_ID: '657479599052528',
+  BASE_URL: `http://127.0.0.1:8080/api/v1/tsam/tenant/7ca2664b-f379-43db-bdf9-7fdd40707219`
 };

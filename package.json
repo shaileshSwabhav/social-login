@@ -4,13 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "ssl": "ng serve -o --ssl true",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
-    "@abacritt/angularx-social-login": "^1.2.5",
     "@angular/animations": "^14.1.0",
     "@angular/common": "^14.1.0",
     "@angular/compiler": "^14.1.0",

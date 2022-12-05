@@ -1,5 +1,6 @@
-import { SocialAuthService, FacebookLoginProvider, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
+import { FacebookService } from './service/facebook/facebook.service';
+import { LinkedinService } from './service/linkedin/linkedin.service';
 
 @Component({
   selector: 'app-root',
@@ -9,51 +10,55 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   constructor(
-    private authService: SocialAuthService,
+    private linkedinService: LinkedinService,
+    private fbService: FacebookService,
   ) { }
 
   isLoggedIn: boolean = false
 
-  fbLoginOptions = {
-    scope: 'email,user_birthday,user_gender',
-    return_scopes: true,
-    enable_profile_selector: true
-  };
-  
-
   ngOnInit(): void {
-    this.authService.authState.subscribe({
-      next: (user: SocialUser) => {
-        console.log("ngoninit user -> ", user);
-        this.socialUser = user
-        this.isLoggedIn = (user != null)
+  }
+
+  signInWithFB(): void {
+    this.fbService.facebookLogin().subscribe({
+      next: (response: any) => {
+        console.log(response);
       },
       error: (err: any) => {
         console.error(err);
-        this.isLoggedIn = false
       }
     })
-  }
 
-  socialUser: SocialUser | null = null
-
-  signInWithFB(): void {
-    try {
-      const socialUser = this.authService.signIn(FacebookLoginProvider.PROVIDER_ID, this.fbLoginOptions);
-      console.log("after login -> ", socialUser);
-      this.isLoggedIn = true
-    } catch (error) {
-      console.error(error);
-      this.isLoggedIn = false
-    }
+    // try {
+    //   const socialUser = this.authService.signIn(FacebookLoginProvider.PROVIDER_ID, this.fbLoginOptions);
+    //   console.log("after login -> ", socialUser);
+    //   this.isLoggedIn = true
+    // } catch (error) {
+    //   console.error(error);
+    //   this.isLoggedIn = false
+    // }
   }
 
   signout(): void {
-    try {
-      this.authService.signOut();
-      this.isLoggedIn = false
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   this.authService.signOut();
+    //   this.isLoggedIn = false
+    // } catch (error) {
+    //   console.error(error);
+    // }
+  }
+
+  signInWithLinkedIn(): void {
+    console.log("signInWithLinkedIn clicked");
+    this.linkedinService.linkedInLogin().subscribe({
+      next: (value: any) => {
+        console.log(value);
+        console.log("success :)");
+      },
+      error: (err: any) => {
+        console.error(err);
+        console.error("error :(");
+      }
+    })
   }
 }

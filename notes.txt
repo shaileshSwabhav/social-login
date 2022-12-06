@@ -4,6 +4,7 @@ ng build --output-path docs --base-href /social-login/
 
 LINKEDIN
 redirect URL - https://www.linkedin.com/developers/tools/oauth/redirect
+http://localhost:8080/api/v1/tsam/tenant/7ca2664b-f379-43db-bdf9-7fdd40707219/auth/linkedIn/callback
 
 access token
 AQUblm2HlpDprMmJhPyt5l_vHpnJf8feXH9xmUzZA5-L63MSFhB39828WjRfca7asPukqo82h8eq8JQpVJ9bk83oS3mde7pHHIuVJbV3wunoF95u5MroyxP69oirHYvTn2NQGenB6vek8ApqhMsPagHbl0lETAUFjhbuGGEIV46_UfUXjAKxZM75uQBRoPBJIKiOSYlSySAzDrgw-8I0gFDntQCyCwDKGyh7b34QXncp6z0XcAITRpshop0RChBQg87FywD_ytPVYqS81V-xCcqXDXUeRpfOWgvk5u_MH3nt8VQPtg_PkecvOH488Mwxd5AXXPbIJC3IObhhkbm0x1Ykt0JwXw

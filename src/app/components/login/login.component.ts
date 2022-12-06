@@ -1,6 +1,7 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FacebookService } from 'src/app/service/facebook/facebook.service';
+import { GithubService } from 'src/app/service/github/github.service';
 import { ILinkedInRedirectURL, LinkedinService } from 'src/app/service/linkedin/linkedin.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private linkedinService: LinkedinService,
     private fbService: FacebookService,
+    private githubService: GithubService,
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +41,21 @@ export class LoginComponent implements OnInit {
     console.log("signInWithLinkedIn clicked");
     this.linkedinService.linkedInLogin().subscribe({
       next: (value: HttpResponse<ILinkedInRedirectURL>) => {
-        console.log();
+        console.log(value);
+        this.redirectURL = value.body
+        console.log("success :) ", value);
+        window.open(this.redirectURL!.url, "_self")
+      },
+      error: (err: any) => {
+        console.error(err);
+      }
+    })
+  }
+
+  signInWithGithub(): void {
+    this.githubService.githubLogin().subscribe({
+      next: (value: HttpResponse<ILinkedInRedirectURL>) => {
+        console.log(value);
         this.redirectURL = value.body
         console.log("success :) ", value);
         window.open(this.redirectURL!.url, "_self")

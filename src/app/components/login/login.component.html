@@ -1,26 +1,10 @@
-<button class="btn" type="button" (click)="signInWithLinkedIn()">
-  <img src="assets/button/linkedin-small.png" alt="linkedin">
-</button>
 
-<ng-container *ngIf="!isLoggedIn; else logout">
-  <button type="button" (click)="signInWithFB()">Facebook</button>
-</ng-container>
+<button type="button" (click)="signInWithLinkedIn()">LinkedIn</button>
 
-<ng-template #logout>
-  <button type="button" (click)="signout()">Signout</button>
+<br>
 
-  <!-- <h2>Logged in user details</h2>
-  <h4>ID: {{socialUser?.id}}</h4>
-  <h4>Auth Token: {{socialUser?.authToken}}</h4>
-  <h4>Authorization Code: {{socialUser?.authorizationCode}}</h4>
-  <h4>Name: {{socialUser?.firstName + " " + socialUser?.lastName}}</h4>
-  <h4>Email: {{socialUser?.email}}</h4>
-  <h4>Profile Image</h4>
-  <img [src]='socialUser?.response.picture.data.url' alt="Profile picture" width="100" height="100">
-  <br>
-  <br>
-  <img [src]='socialUser?.photoUrl' alt="Profile picture" width="100" height="100">
+<button type="button" (click)="signInWithFB()">Facebook</button>
 
-  <h4>Response</h4>
-  <p>{{socialUser?.response | json}}</p> -->
-</ng-template>
+<br>
+
+<button type="button" (click)="signInWithGithub()">Github</button>

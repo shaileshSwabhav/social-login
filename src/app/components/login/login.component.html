@@ -1,4 +1,3 @@
-
 <button type="button" (click)="signInWithLinkedIn()">LinkedIn</button>
 
 <br>
@@ -8,3 +7,28 @@
 <br>
 
 <button type="button" (click)="signInWithGithub()">Github</button>
+
+<br>
+<br>
+<br>
+
+<span>
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Sample Offer Letter: </label>
+    <div class="col-sm-4">
+      <span class="custom-file">
+        <input type="file" class="custom-file-input" (change)="fileUpload($event)" id="customOfferLetterFile"
+          value="offerDisplayedFileName">
+        <label class="custom-file-label" id="custom-file-label" for="customOfferLetterFile"
+          [innerHTML]="offerDisplayedFileName"></label>
+        <button class="btn btn-success custom-file" [disabled]="true" id="uploadingButton" type="button"
+          *ngIf="isOfferLetterFileUploading">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Uploading file...
+        </button>
+      </span>
+      <!-- should add view uploaded brochure using a brochure variable after cleaning. -->
+      <label id="uploadStatus" for="customOfferLetterFile" [innerHTML]="offerLetterDocStatus"></label>
+    </div>
+  </div>
+</span>
